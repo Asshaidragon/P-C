@@ -3,7 +3,6 @@ import socket
 
 def connect():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # server_socket.connect(('MASTER-PC01', 5000))
     server_socket.connect(('127.0.0.1', 5000))
 
     hostname = socket.gethostname()
@@ -18,6 +17,7 @@ def connect():
         else:
             # log_text = log_text.encode('utf-8')
             server_socket.send(log_text)
+
 
 
     # x = input().encode('utf-8')
