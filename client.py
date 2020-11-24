@@ -25,8 +25,7 @@ def connect():
             print(result)
         else:
             result = 'unknown command'
-            print('unknown command')
-            #server_socket.send(b'unknown command')
+            print(result)
 
         server_socket.send(result.encode())
         log_text = input().encode('utf-8')
@@ -35,7 +34,6 @@ def connect():
             server_socket.close()
             break
         else:
-            # log_text = log_text.encode('utf-8')
             server_socket.send(log_text)
 
 

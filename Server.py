@@ -25,7 +25,6 @@ while True:
         break
     else:
         while True:
-            client_socket.sendall(b'start_scan')
             result = client_socket.recv(4096)
             if result.decode('utf-8').lower() == 'end':
                 client_socket.close()
