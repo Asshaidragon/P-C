@@ -18,14 +18,15 @@ def connect():
     hostname = socket.gethostname()
     server_socket.send(hostname.encode('utf-8'))
     while True:
-        message = server_socket.recv(4000)
-        print(message.decode())
-        if message == b'start_scan':
-            result = start_script()
-            print(result)
-        else:
-            result = 'unknown command'
-            print(result)
+        # message = server_socket.recv(4000)
+        # print(message.decode())
+        # if message == b'start_scan':
+        result = start_script()
+        print(result)
+        # else:
+        #     result = 'unknown command'
+        #     print('unknown command')
+            #server_socket.send(b'unknown command')
 
         server_socket.send(result.encode())
         log_text = input().encode('utf-8')
@@ -34,6 +35,7 @@ def connect():
             server_socket.close()
             break
         else:
+            # log_text = log_text.encode('utf-8')
             server_socket.send(log_text)
 
 
